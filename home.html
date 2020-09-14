@@ -4,17 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <title>BKmall</title>
     <style>
         h1 {
             border-bottom: 1px solid gray;
         }
 
-        li {
-            margin: 10px;
+        
+        .tab-menu {
+            list-style: none;
+            height: 80px;
+        }
+
+        .tab-menu li {
+            width: 99px;
+            height: 40px;
+            background-position-y: 0;
+            text-indent: -1000px;
+            overflow: hidden;
             display: inline-block;
+            float: left;
+        }
+        .tab-menu li:hover {
+            background-position-y: -40px;
+        }
+        .tab-menu li.select {
+            background-position-y: -80px;
+            height: 80px;
+        }
+        .tab-menu li.menuitem-meat {
+            background-image: url(./img/meat.png);
+        }
+        .tab-menu li.menuitem-vegetable {
+            background-image: url(./img/vegetable.png);
+        }
+        .tab-menu li.menuitem-snack {
+            background-image: url(./img/snack.png);
+        }
+        .tab-menu li.menuitem-drink {
+            background-image: url(./img/drink.png);
         }
     </style>
+    <script>
+          $(document).ready(function(){
+            $(".tab-menu li").click(function(){
+                $("#tabmenu1").children().removeClass("select");
+                $(this).addClass("select");
+            })
+        })
+    </script>
 </head>
 
 <body>
@@ -25,11 +64,11 @@
         <input type="submit" value="login">
         <button type="button" onclick=" location.href='./join.html' ">join</button>
     </form>
-    <ul>
-        <li>육류</li>
-        <li>야채</li>
-        <li>과자</li>
-        <li>음료</li>
+    <ul class="tab-menu" id="tabmenu1">
+        <li class="menuitem-meat">meat</li>
+        <li class="menuitem-vegetable">vegetable</li>
+        <li class="menuitem-snack">snack</li>
+        <li class="menuitem-drink">drink</li>
     </ul>
 </body>
 
